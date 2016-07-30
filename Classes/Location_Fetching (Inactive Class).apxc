@@ -1,5 +1,12 @@
 public class location_Booking {
     
+    /*
+    
+    We were using this class earlier when we were implementing the "Google MAP API" calls, which failed drastically.
+    This class works fine sometimes, and sometimes it doesn't. Which is kind of weird and we still haven't found out
+    what the issue is. So, this class remains inactive, as we switched to "Clean Rules" to get the geo location of two addresses.
+    
+    */
     
     
 
