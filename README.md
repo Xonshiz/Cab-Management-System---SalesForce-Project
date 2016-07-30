@@ -66,3 +66,21 @@ This says that name of trigger is "`Lead_To_Customers`" and it is being activate
 Anything with the `(Inactive)` tag in it means that it is not being used anywhere. It is not properly working and might be used in future with some updation.
 
 Rest is self-explanatory!
+
+#How does this work?
+
+First, you'll need to update the source code of the VisualForce Pages and Classes, because I did not use partial links when I wrote this. So, update the links in classes as well, because of the PageReference method for page redirection.
+
+Anyways, the basic working of this project is that :
+
+The user will sign up from the sign up page and that data will be saved in a custom object with API name "`Customer__c`". Now, if the data is valid, it'll redirect the user to `Booking Page`, otherwise, it'll refresh the page and show the respective error. The `Email Address` field is Unique, so no repeated records for an email ID. Now, whatever you enter in booking page, it'll go and save in `Account`, a standard object. and a trigger will be activated when this runs, which will check the entered phone number and fetch the related email ID from the `Customer__c` into `Account`. And another trigger will be fired after insertion, that will copy the Phone Number from Ph_Num field of account an add it into the `Name` field of `Account` Object.
+Now, after Booking, you'll see a thank you page and an email will be sent to the registered email ID with the billign details.
+
+
+There's no driver's scenario, that is why the trip ends as soon as it starts. We'll probably work on this and make something out of it for driver, so the driver can end the trip status and some other things happen and it gets the job done.
+
+Anyway, the project is very basic and does what it is intereded to do without any kind of problem(s).
+
+Btw, there's a login functionality and password reset functionality, which is done via an apex class. Look for it in the code itself ;)
+
+
