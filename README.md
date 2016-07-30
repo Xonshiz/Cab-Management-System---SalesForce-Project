@@ -10,13 +10,13 @@ We wanted to create a website where users can book a cab, get the cab assigned a
 
 Team had 6 members, and here are their names :
 
-1.) Dhruv Kanojia
+1.) [Dhruv Kanojia](https://github.com/Xonshiz)
 
 2.) Hinshu Jain
 
-3.) Ankit Passi
+3.) [Ankit Passi](https://github.com/ankitpassi141)
 
-4.) Devesh Shyngle
+4.) [Devesh Shyngle](https://github.com/deveshyngle)
 
 5.) Raghav Sharma
 
