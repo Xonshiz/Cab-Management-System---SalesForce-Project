@@ -1,4 +1,13 @@
 public class LoginCheck {
+
+/*
+
+What this class basically is doing is that it is fetchign the value from the text fields from the login page and then an SOQL query is being run, which is matching the entered email ID against all the records in the SOQL.
+If it finds the email ID, it'll look for the password. If the combo matches, show them the "Booking Page", otherwise, refresh the page.. or throw up an error.
+
+
+
+*/
     
     
     public Static String email_ID {get; set;}
