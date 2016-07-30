@@ -12,7 +12,7 @@ public class Contact_US_Class
     {   
         PageReference pageRef;        
         controller.save();
-        pageRef = new PageReference('https://xonshiz-dev-ed--c.ap2.visual.force.com/apex/Message_Received_Page');
+        pageRef = new PageReference('/apex/Message_Received_Page');
         pageRef.setRedirect(true);
         return pageRef;
      }        
