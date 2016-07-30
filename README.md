@@ -12,7 +12,7 @@ Team had 6 members, and here are their names :
 
 1.) [Dhruv Kanojia](https://github.com/Xonshiz)
 
-2.) Hinshu Jain
+2.) [Hinshu Jain](https://github.com/CrackedLearner)
 
 3.) [Ankit Passi](https://github.com/ankitpassi141)
 
