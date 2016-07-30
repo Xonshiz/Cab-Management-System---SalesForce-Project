@@ -63,4 +63,6 @@ For example : `Lead_To_Customers (Lead)`
 
 This says that name of trigger is "`Lead_To_Customers`" and it is being activated on "`Lead`".
 
+Anything with the `(Inactive)` tag in it means that it is not being used anywhere. It is not properly working and might be used in future with some updation.
+
 Rest is self-explanatory!
