@@ -1,0 +1,55 @@
+public class LoginCheck {
+    
+    
+    public Static String email_ID {get; set;}
+    public Static String Password {get; set;}
+    Public Static Integer Flag =0;
+    Account request;
+    public ApexPages.StandardController controller;
+    public LoginCheck(ApexPages.StandardController controller) {
+        this.controller = controller;
+    }
+    Public Static void logIn()
+    {
+        
+        system.debug('my Email '+email_ID);
+        system.debug('my Password '+Password);
+        
+        List<Customer__c> Records = [select Password__c,Email__c from Customer__c where Email__c=:email_ID]; 
+        system.debug(Records);
+        for (Customer__c a:Records)
+        {
+            if (a.Password__c == Password)
+            {
+                system.debug('Same Password');
+                
+                
+                Flag=1;    
+                
+            }
+            else 
+            {
+                system.debug('Not Same Password');
+                
+            }
+        }   
+    }
+    
+    
+    public PageReference myMethod()
+    {	
+        PageReference pageRef;
+        LoginCheck.logIn();
+        
+        system.debug('I\'m in here');
+        //	   PageReference pageRef = new PageReference('/apex/Booking_Page');
+        if(Flag==1)
+        {
+            pageRef = new PageReference('/apex/Booking_Page');
+            
+            pageRef.setRedirect(true);
+        }		return pageRef;
+        
+    }        
+    
+}

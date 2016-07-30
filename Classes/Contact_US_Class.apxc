@@ -1,0 +1,23 @@
+public class Contact_US_Class 
+{
+    
+    
+    public ApexPages.StandardController controller;
+    public Contact_US_Class(ApexPages.StandardController controller) 
+    {
+        this.controller = controller;
+    }
+    
+       public PageReference myMethod()
+    {   
+        PageReference pageRef;        
+        controller.save();
+        pageRef = new PageReference('https://xonshiz-dev-ed--c.ap2.visual.force.com/apex/Message_Received_Page');
+        pageRef.setRedirect(true);
+        return pageRef;
+     }        
+
+    
+    
+
+}

@@ -1,0 +1,22 @@
+public class saveAndRedirect {
+    
+    Account request;
+    private ApexPages.StandardController controller;
+    public saveAndRedirect(ApexPages.StandardController controller) {
+        this.controller = controller;
+    }
+    
+    public PageReference saveAndCongrat1() {
+        //controller.save(); // This takes care of the details for you.
+        if(controller.save() != null)
+        {
+            PageReference congratsPage = Page.bill_thanks;
+            congratsPage.setRedirect(true);
+            return congratsPage;
+            
+        }
+        return null;
+        
+        
+    }
+}
