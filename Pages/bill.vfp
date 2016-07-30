@@ -1,0 +1,310 @@
+<apex:page standardStylesheets="false" standardController="Account" showHeader="false" sidebar="false" docType="html-5.0">
+<apex:form >
+    <html>
+<head>
+
+    <style>
+
+        @font-face {
+    font-family: SourceSansPro;
+    src: url(SourceSansPro-Regular.ttf);
+    }
+
+    .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    a {
+    color: #0087C3;
+    text-decoration: none;
+    }
+
+    body {
+    position: relative;
+    width: 21cm;  
+    height: 29.7cm; 
+    margin: 0 auto; 
+    color: #555555;
+    background: #FFFFFF; 
+    font-family: Arial, sans-serif; 
+    font-size: 14px; 
+    font-family: SourceSansPro;
+    }
+
+    header {
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #AAAAAA;
+    }
+
+    #logo {
+    float: left;
+    margin-top: 8px;
+    }
+
+    #logo img {
+    height: 70px;
+    }
+
+    #company {
+    float: right;
+    text-align: right;
+    }
+
+
+    #details {
+    margin-bottom: 50px;
+    }
+
+    #client {
+    padding-left: 6px;
+    border-left: 6px solid #0087C3;
+    float: left;
+    }
+
+    #client .to {
+    color: #777777;
+    }
+
+    h2.name {
+    font-size: 1.4em;
+    font-weight: normal;
+    margin: 0;
+    }
+
+    #invoice {
+    float: right;
+    text-align: right;
+    }
+
+    #invoice h1 {
+    color: #0087C3;
+    font-size: 2.4em;
+    line-height: 1em;
+    font-weight: normal;
+    margin: 0  0 10px 0;
+    }
+
+    #invoice .date {
+    font-size: 1.1em;
+    color: #777777;
+    }
+
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    }
+
+    table th,
+    table td {
+    padding: 20px;
+    background: #EEEEEE;
+    text-align: center;
+    border-bottom: 1px solid #FFFFFF;
+    }
+
+    table th {
+    white-space: nowrap;        
+    font-weight: normal;
+    }
+
+    table td {
+    text-align: right;
+    }
+
+    table td h2{
+    color: #57B223;
+    font-size: 1.6em;
+    font-weight: normal;
+    margin: 0 0 0.2em 0;
+    }
+
+    table .no {
+    color: #FFFFFF;
+    font-size: 1.6em;
+    background: #57B223;
+    }
+
+    table .desc {
+    text-align: left;
+    }
+
+    table .unit {
+    background: #DDDDDD;
+    text-align:left;
+    }
+
+    table .qty {
+    }
+
+    table .total {
+    background: #57B223;
+    color: #FFFFFF;
+    }
+
+    table td.unit,
+    table td.qty,
+    table td.total {
+    font-size: 1.2em;
+    }
+
+    table tbody tr:last-child td {
+    border: none;
+    }
+
+    table tfoot td {
+    padding: 10px 20px;
+    background: #FFFFFF;
+    border-bottom: none;
+    font-size: 1.2em;
+    white-space: nowrap; 
+    border-top: 1px solid #AAAAAA; 
+    }
+
+    table tfoot tr:first-child td {
+    border-top: none; 
+    }
+
+    table tfoot tr:last-child td {
+    color: #57B223;
+    font-size: 1.4em;
+    border-top: 1px solid #57B223; 
+
+    }
+
+    table tfoot tr td:first-child {
+    border: none;
+    }
+
+    #thanks{
+    font-size: 3em;
+    margin-bottom: 10px;
+    margin-top: 12%;
+    text-align:center;
+    }
+
+    #notices{
+    padding-left: 6px;
+    border-left: 6px solid #0087C3;  
+    }
+
+    #notices .notice {
+    font-size: 1.2em;
+    }
+
+    footer {
+    color: #777777;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid #AAAAAA;
+    padding: 8px 0;
+    text-align: center;
+    }
+
+
+    </style>
+    <meta charset="utf-8"/>
+    <title>Cab Job Invoice</title>
+    <link href="style.css" media="all" rel="stylesheet"/>
+</head>
+<body>
+    <header class="clearfix">
+        <div id="logo"><apex:image id="logo" value="{!$Resource.cabjoblogo}" height="60" width="170"/></div>
+        <div id="company">
+            <h2 class="name">CAB JOB</h2>
+            <div>
+                145 Floor, Burj Khalifa<br />
+                Mohammed bin Rashid Boulevard, Dubai<br />
+                United Arab Emirates
+            </div>
+            <div>
+                9911991191
+            </div>
+            <div>
+                <a href="mailto:info@cabjob.com">info@cabjob.com</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="clearfix" id="details">
+            <div id="client">
+                <div class="to">
+                    INVOICE TO:
+                </div>
+                <h2 class="name"> <apex:outputField value="{!Account.Name}"/></h2>
+                <div class="address">
+                                    <apex:outputField value="{!Account.BillingStreet}"/><br />
+                                    <apex:outputField value="{!Account.BillingCity}"/><br />
+                                    <apex:outputField value="{!Account.BillingPostalCode}"/><br />
+                                    <apex:outputField value="{!Account.BillingCountry}"/><br />
+                </div>
+                <div class="email">
+                    <a href="mailto:john@example.com"><apex:outputField value="{!Account.Cust_Email__c}"/></a>
+                </div>
+            </div>
+            <div id="invoice">
+                <h1>INVOICE</h1>
+            </div>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0">
+            
+            <tbody>
+                <tr>
+                    <td class="no"></td>
+                    <td class="desc">
+                       <b> <h2>Trip Details:-</h2></b> </td>
+                        <td class="unit">
+                         <b>Pickup Address:-</b> &nbsp; <br /> <apex:outputField value="{!Account.BillingStreet}"/><br />
+                                                        <apex:outputField value="{!Account.BillingCity}"/><br />
+                                                        <apex:outputField value="{!Account.BillingPostalCode}"/><br />
+                                                        <apex:outputField value="{!Account.BillingCountry}"/><br />
+        
+                         <b>Destination Address:-</b> &nbsp;<br /> <apex:outputField value="{!Account.ShippingStreet}"/><br />
+                                                            <apex:outputField value="{!Account.ShippingCity}"/><br />
+                                                            <apex:outputField value="{!Account.ShippingPostalCode}"/><br />
+                                                            <apex:outputField value="{!Account.ShippingCountry}"/><br />
+                         <b>Car Name:-</b> &nbsp; <apex:outputField value="{!Account.Cab_Assigned__c}"/><br />
+                         <b>Car Reg. Number:-</b> &nbsp; <apex:outputField value="{!Account.Cab_Plate_Number__c}"/><br />
+                         <b>Cab Type:-</b> &nbsp; <apex:outputField value="{!Account.Cab_Type__c}"/><br />
+                         <b>Driver:-</b> &nbsp; <apex:outputField value="{!Account.Driver_Assigned__c}"/><br />
+                         </td>
+                   <td class="no"></td>
+                    
+                </tr>
+                <tr>
+                    <td class="no"></td>
+                    <td class="desc">
+                       <b> <h2>Fare Details:-</h2></b></td>
+                     <td class="unit">
+                        <b> Distance Traveled :-</b> <apex:outputField value="{!Account.Distanceinkm__c}"/>&nbsp;KM<br /> 
+                         <b>Payment Mode:-</b> CASH ONLY<br />
+                    </td>
+                   <td class="no"></td>
+                </tr>
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="0"></td>
+                    <td colspan="0">GRAND TOTAL</td>
+                    <td>Rs. {!Account.Fare1__c}{!Account.Fare2__c}{!Account.Fare3__c}</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div id="thanks">
+            Thank you!
+        </div>
+    </main>
+    <footer>
+        This Invoice is system generated and is valid without any signature.
+    </footer>
+</body>
+</html>
+</apex:form>
+</apex:page>
