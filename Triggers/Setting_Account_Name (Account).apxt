@@ -1,0 +1,17 @@
+trigger Account_Name_Set on Account (before insert) 
+{
+  For(Account eachAccount: trigger.new){
+     // copy the phone to name field only if phone is not blank 
+     If(eachAccount.Phone_no__c != null){ 
+         eachAccount.Name = eachAccount.Phone_no__c;  // copy the value og phone field to Account Name field.
+         
+
+     }
+     //eachAccount.Name = eachAccount.Booking_ID__c; 
+ }
+    
+    
+
+
+
+}

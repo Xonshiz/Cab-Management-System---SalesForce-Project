@@ -1,0 +1,23 @@
+trigger CustomerRecordInsert on Lead (After insert) {
+    list<Customer__c> l1 = new list<Customer__c>();
+    
+      for(Lead l2:Trigger.New)
+       { 
+           Customer__c c = new Customer__c();
+          
+          c.Customer_name__c = l2.Cust_Name__c ;
+          c.Name = l2.PhNum__c ;
+          c.Email__c = l2.Email_ID_reg__c;
+          c.city__c = l2.City__c;
+          c.Country__c = l2.Country__c;
+          c.state__c = l2.State__c;
+          c.street__c = l2.Street__c;
+          c.zip_postal_code__c = l2.Zip_Postal_Code__c;
+          c.Password__c = l2.password__c;
+          c.Cust_Phone__c = l2.PhNum__c;
+           
+
+          l1.add(c);
+         }
+        insert l1;
+}

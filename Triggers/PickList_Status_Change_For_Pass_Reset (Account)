@@ -1,0 +1,16 @@
+trigger PickList_Status on Account (after insert) 
+{
+
+For(Account eachAccount: trigger.new)
+{
+    if(eachAccount.Bill_Generated__c=='--None--')
+    eachAccount.Bill_Generated__c = 'Done';
+     // copy the phone to name field only if phone is not blank 
+  //   If(eachAccount.Phone_no__c != null)
+   //  { 
+    //     eachAccount.Name = eachAccount.Phone_no__c;  // copy the value og phone field to Account Name field. 
+   //  }
+ }
+
+
+}

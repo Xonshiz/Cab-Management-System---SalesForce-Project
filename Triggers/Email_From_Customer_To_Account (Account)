@@ -1,0 +1,26 @@
+trigger Info_from_Cust_to_Acc_main on Account (before Insert, before update) 
+{
+List<Account> memberList = new List<Account>();
+    
+        string data_main;
+    
+    
+        for(Account member : Trigger.new)
+        {
+            data_main = member.Phone_no__c;
+            Customer__c c = [Select Cust_Phone__c,Email__c,city__c,Country__c,zip_postal_code__c,street__c,state__c from Customer__c where Cust_Phone__c=:data_main LIMIT 1];              
+    
+              if(c.Email__c != null)
+              {
+                    member.Cust_Email__c = c.Email__c;
+              }
+            else 
+            {
+                member.Cust_Email__c = 'nothing@nothing.com';
+            }
+            
+            
+                
+        }
+            
+}
