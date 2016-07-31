@@ -84,3 +84,12 @@ Anyway, the project is very basic and does what it is intereded to do without an
 Btw, there's a login functionality and password reset functionality, which is done via apex class. Look for it in the code itself ;)
 
 
+#Notes
+
+Special thanks to our trainer `Mr. Shiv Shankar` for his help in writing some of these triggers and classes.
+
+The website's layout was ripped off of a template designed by `W3layouts`. You can find it [HERE](https://w3layouts.com/city-taxi-taxi-services-mobile-website-template/).
+
+I had to keep all the CSS, JS and jQuery in the VisualForce pages because it wasn't accepting the external file for some reason.
+
+
